@@ -1,0 +1,16 @@
+
+.main-page{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: auto;
+    align-content: start;
+  }
+  
+  .main{
+    display: flex;
+    align-content: flex-start;
+    width: 100%;
+  }
+

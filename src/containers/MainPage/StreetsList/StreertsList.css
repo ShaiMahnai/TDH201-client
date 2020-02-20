@@ -1,0 +1,14 @@
+.streets-list{
+    width: 10%;
+  }
+  .streets-list .title{
+    font-size: 14px;
+    font-weight: bold;
+}
+.streets-list ul{
+    margin-top: unset;
+}
+.streets-list li{
+    font-size: 10px;
+    cursor: pointer;
+}

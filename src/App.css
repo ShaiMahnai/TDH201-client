@@ -1,0 +1,11 @@
+html,body,#root{
+  height: 100%;
+}
+
+.App {
+  padding: 15px 15px 0 15px; 
+  direction: rtl;
+
+  height: 100%;
+}
+

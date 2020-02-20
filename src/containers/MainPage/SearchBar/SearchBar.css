@@ -1,0 +1,23 @@
+.search-bar{
+    width:100%;
+    text-align: center;
+}
+.select-wrapper{
+    display: inline-block;
+    text-align: center;
+    padding-left: 30px;
+}
+.select-wrapper .input{
+    padding-left: 10px;
+    display: inline-block;
+    color: blue;
+}
+.select-wrapper .select{
+    width: 100px;
+}
+.select-item{
+    direction: rtl;
+    padding: 5px !important;
+    padding-right: 35px !important;
+    font-size: 12px !important;
+}
