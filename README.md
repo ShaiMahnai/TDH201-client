@@ -1,4 +1,4 @@
-# TDH201-clitnet
+# TDH201-client
 To run project:
 
 1. Clone the project
