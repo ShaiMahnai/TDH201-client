@@ -12,6 +12,6 @@ html,body,#root{
 .mainPage, .about{
   padding: 1%;
   background-color: #DDDDDD;
-  height: 100vh;
+  min-height: 100vh;
 
 }

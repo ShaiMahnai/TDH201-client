@@ -131,7 +131,7 @@ export class MapContainer extends Component {
       <Map
         className={this.props.className}
         google={this.props.google}
-        zoom={13.5}
+        zoom={14}
         style={mapStyles}
         initialCenter={{
           lat: this.state.center.lat,

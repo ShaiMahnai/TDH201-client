@@ -6,7 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import MainMapPage from './containers/MainMapPage/MainMapPage.js';
+import MapPage from './containers/MapPage/MapPage.js';
 import About from './containers/About/About.js'
 import Menu from './containers/Menu/Menu.js'
 import HomePage from './containers/HomePage/HomePage.js'
@@ -30,7 +30,7 @@ export class App extends Component {
           <Menu />
           <Switch>
             <Route exact path="/" render={(props) => <HomePage {...props} />} />
-            <Route exact path="/map" render={(props) => <MainMapPage {...props} />} />
+            <Route exact path="/map" render={(props) => <MapPage {...props} />} />
             <Route path="/about" render={(props) => <About {...props} />} />
           </Switch>
         </BrowserRouter>

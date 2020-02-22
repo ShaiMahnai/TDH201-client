@@ -5,8 +5,8 @@ import GoogleApiWrapper from './MapContainer/MapContainer.js'
 import StreertsList from './StreetsList/StreertsList.js'
 import SearchBar from './SearchBar/SearchBar.js'
 
-import './MainMapPage.css';
-export class MainMapPage extends Component {
+import './MapPage.css';
+export class MapPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,6 +14,7 @@ export class MainMapPage extends Component {
             SelectedDecades: [],
             SelectedNeighborhoods: [],
             WomanStreetsOnly: false,
+            PlannedStreetsOnly: false,
             DisplayedStreetsLines: [],
             DisplayedStreetsPoints: [],
             DisplayedStreetsNames: [],
@@ -32,16 +33,19 @@ export class MainMapPage extends Component {
             })
     };
     handleDecadeChanged(decade) {
-        this.UpdateStreetDisplay([decade], this.state.SelectedNeighborhoods, this.state.WomanStreetsOnly);
+        this.UpdateStreetDisplay([decade], this.state.SelectedNeighborhoods, this.state.WomanStreetsOnly, this.state.PlannedStreetsOnly);
     }
     handleNeighborhoodChanged(neighborhood) {
-        this.UpdateStreetDisplay(this.state.SelectedDecades, [neighborhood], this.state.WomanStreetsOnly);
+        this.UpdateStreetDisplay(this.state.SelectedDecades, [neighborhood], this.state.WomanStreetsOnly, this.state.PlannedStreetsOnly);
     }
     handleWomanStreetsOnlyChecked(checkbox) {
         let checked = checkbox.target.checked;
-        this.UpdateStreetDisplay(this.state.SelectedDecades, this.state.SelectedNeighborhoods, checked);
+        this.UpdateStreetDisplay(this.state.SelectedDecades, this.state.SelectedNeighborhoods, checked, this.state.PlannedStreetsOnly);
     }
-
+    handlePlannedStreetsOnlyChecked(checkbox) {
+        let checked = checkbox.target.checked;
+        this.UpdateStreetDisplay(this.state.SelectedDecades, this.state.SelectedNeighborhoods, this.state.WomanStreetsOnly, checked);
+    }
 
     handleStreetClicked = (street) => {
 
@@ -70,7 +74,7 @@ export class MainMapPage extends Component {
 
     };
 
-    UpdateStreetDisplay = (decades, neighborhoods, womanStreetsOnly) => {
+    UpdateStreetDisplay = (decades, neighborhoods, womanStreetsOnly, plannedStreetsOnly) => {
         let lines = [];
         let points = [];
         let names = [];
@@ -79,7 +83,8 @@ export class MainMapPage extends Component {
                 (
                 (!decades.length || (decades[0] === ("הכל") || decades.includes(element.decade))) &&
                 (!neighborhoods.length || (neighborhoods[0] === ("הכל") || neighborhoods.includes(element.neighborhood))) &&
-                (!womanStreetsOnly || element.isNamedAfterWoman)
+                (!womanStreetsOnly || element.isNamedAfterWoman) &&
+                (!plannedStreetsOnly || !element.Exist)
 
             ) {
                 names.push(element.name);
@@ -103,6 +108,7 @@ export class MainMapPage extends Component {
                 SelectedDecades: decades,
                 SelectedNeighborhoods: neighborhoods,
                 WomanStreetsOnly: womanStreetsOnly,
+                PlannedStreetsOnly: plannedStreetsOnly,
                 ColorfullStreetName: ''
             });
     }
@@ -115,6 +121,7 @@ export class MainMapPage extends Component {
                 onDecadeChanged={this.handleDecadeChanged.bind(this)}
                 onNeighborhoodChanged={this.handleNeighborhoodChanged.bind(this)}
                 onWomanStreetsOnlyChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
+                onPlannedSreetsChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
             ></SearchBar>
             <div className='main'>
                 {this.state.DisplayedStreetsNames.length > 0 &&
@@ -134,4 +141,4 @@ export class MainMapPage extends Component {
         </div >
     }
 }
-export default MainMapPage;
+export default MapPage;

@@ -48,6 +48,13 @@ export class SearchBar extends Component {
                     }
                     label="על שם נשים בלבד"
                 />
+                <FormControlLabel
+                    control={
+                        <Checkbox onChange={value => this.props.onPlannedSreetsChecked(value)} value="secondary" color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }}
+                        />
+                    }
+                    label="רחובות מתוכננים בלבד"
+                />
             </div>
         )
     }
