@@ -11,9 +11,11 @@ About the project:
 
 The project was built as part of the Digital Humanities course as part of undergraduate degree in Computer Science at Ben Gurion University, Beer Sheva, under the guidance of Dr. Yael Netzer. https://www.cs.bgu.ac.il/~tdh201/Main
 
-As part of our client-side work, we established a React project, which presents our work on a map in an interactive way. The project presents a map of google maps, on which the streets of the city can be viewed according to different choices: neighborhood, the decade in which the city council approved the construction of the street, whether the street is named after a woman.
+This is the client side of a project that aims to show the development of the city of Beer Sheva throughout history, on a map. URL: https://tdh201-cfc16.firebaseapp.com
 
-We also connected the streets to their values ​​from the Wikipedia site, so clicking on the street within the map would lead to the appropriate value.
+As part of our client-side work, we established a React project, which presents our work on a map in an interactive way. The site presents a map of google maps, on which the streets of the city can be viewed according to different choices: neighborhood, the decade in which the city council approved the construction of the street, whether the street is named after a woman.
+
+We also connected the streets to their values from the Wikipedia site, so clicking on the street within the map would lead to the appropriate value.
 
 In addition, you can see a list of all the streets of the city according to the choice made (streets displayed on the site - from the municipal pool), as well as by clicking on a highlighted street from all the other selected streets.
 
