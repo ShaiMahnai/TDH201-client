@@ -5,7 +5,9 @@ To run project:
 2. Run npm install
 3. Run npm start
 
+
 About the project:
+
 The project was built as part of the Digital Humanities course as part of the undergraduate degree in Computer Science at Ben Gurion University, Beer Sheva: https://www.cs.bgu.ac.il/~tdh201/Main, under the guidance of Dr. Yael Netzer.
 
 As part of our client-side work, we established a React project, which presents our work on a map in an interactive way. The project presents a map of google maps, on which the streets of the city can be viewed according to different choices: neighborhood, the decade in which the city council approved the construction of the street, whether the street is named after a woman.
