@@ -1,68 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run project:
 
-## Available Scripts
+1. Clone the project
+2. Run npm install
+3. Run npm start
 
-In the project directory, you can run:
+About the project:
+The project was built as part of the Digital Humanities course as part of the undergraduate degree in Computer Science at Ben Gurion University, Beer Sheva: https://www.cs.bgu.ac.il/~tdh201/Main, under the guidance of Dr. Yael Netzer.
 
-### `npm start`
+As part of our client-side work, we established a React project, which presents our work on a map in an interactive way. The project presents a map of google maps, on which the streets of the city can be viewed according to different choices: neighborhood, the decade in which the city council approved the construction of the street, whether the street is named after a woman.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We also connected the streets to their values ​​from the Wikipedia site, so clicking on the street within the map would lead to the appropriate value.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+In addition, you can see a list of all the streets of the city according to the choice made (streets displayed on the site - from the municipal pool), as well as by clicking on a highlighted street from all the other selected streets.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+We discovered that there is more information in the database that can be used and displayed, such as city playgrounds, dog gardens, gas stations, etc. We were glad we built the foundation for more people to use what we have already created and expand the project easily, by accessing the desired repository on the municipality's site and adding it to the existing project.
