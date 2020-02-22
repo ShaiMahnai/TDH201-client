@@ -9,3 +9,9 @@ html,body,#root{
   height: 100%;
 }
 
+.mainPage, .about{
+  padding: 1%;
+  background-color: #DDDDDD;
+  height: 100vh;
+
+}

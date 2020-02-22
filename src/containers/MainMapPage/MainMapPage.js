@@ -5,8 +5,8 @@ import GoogleApiWrapper from './MapContainer/MapContainer.js'
 import StreertsList from './StreetsList/StreertsList.js'
 import SearchBar from './SearchBar/SearchBar.js'
 
-import './MainPage.css';
-export class MainPage extends Component {
+import './MainMapPage.css';
+export class MainMapPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -134,4 +134,4 @@ export class MainPage extends Component {
         </div >
     }
 }
-export default MainPage;
+export default MainMapPage;

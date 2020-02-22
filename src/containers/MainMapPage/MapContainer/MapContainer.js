@@ -165,7 +165,9 @@ export class MapContainer extends Component {
             key={index}
             position={coordinates[0]}
             icon={iconPin}
-            onClick={() => this.handleToggleOpen(coordinates)}
+            onClick={() => this.handleStreetClicked(link)}
+            onMouseover={(e) => { this.handleMouseover(name) }}
+            onMouseout={(e) => { this.handleMouseout() }}
           />
 
         )}

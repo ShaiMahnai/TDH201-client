@@ -6,9 +6,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import MainPage from './containers/MainPage/MainPage.js';
+import MainMapPage from './containers/MainMapPage/MainMapPage.js';
 import About from './containers/About/About.js'
 import Menu from './containers/Menu/Menu.js'
+import HomePage from './containers/HomePage/HomePage.js'
 
 
 
@@ -28,7 +29,8 @@ export class App extends Component {
         <BrowserRouter>
           <Menu />
           <Switch>
-            <Route exact path="/" render={(props) => <MainPage {...props} />} />
+            <Route exact path="/" render={(props) => <HomePage {...props} />} />
+            <Route exact path="/map" render={(props) => <MainMapPage {...props} />} />
             <Route path="/about" render={(props) => <About {...props} />} />
           </Switch>
         </BrowserRouter>

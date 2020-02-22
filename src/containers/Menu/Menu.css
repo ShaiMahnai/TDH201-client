@@ -19,6 +19,13 @@
     text-decoration: none;
   }
   
-  .menu li a:hover {
+  .menu li  a:hover:not(.active) {
     background-color: #111111;
+    color: white;
+    font-weight:normal;
+  }
+  .menu li .active{
+    background-color: gold;
+    color:#111111 ;
+    font-weight:bold;
   }
