@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 import GoogleApiWrapper from './MapContainer/MapContainer.js'
 import StreertsList from './StreetsList/StreertsList.js'
 import SearchBar from './SearchBar/SearchBar.js'
+import Loader from 'react-loader-spinner'
+
 
 import './MapPage.css';
 export class MapPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             AllStreets: [],
             SelectedDecades: [],
             SelectedNeighborhoods: [],
@@ -22,15 +25,18 @@ export class MapPage extends Component {
         }
     };
     componentDidMount = () => {
-        this.getStreets().then(jsonData => this.setState({ AllStreets: jsonData.results }))
+        let self = this;
+        this.getStreets()
+            .then(function (jsonData) {
+                self.setState({ AllStreets: jsonData.results, loading: false });
+            })
+            .catch((error) => console.error(error))
     };
     getStreets() {
-        return fetch('https://localhost:44343/api/App')
-            .then(response => response.json())
-            .catch((error) => {
-                // handle your errors here
-                console.error(error)
-            })
+        return fetch('https://api.myjson.com/bins/f60p8')
+            //fetch('https://localhost:44343/api/App')
+            .then((response) => response.json())
+
     };
     handleDecadeChanged(decade) {
         this.UpdateStreetDisplay([decade], this.state.SelectedNeighborhoods, this.state.WomanStreetsOnly, this.state.PlannedStreetsOnly);
@@ -81,19 +87,19 @@ export class MapPage extends Component {
         this.state.AllStreets.forEach(element => {
             if
                 (
-                (!decades.length || (decades[0] === ("הכל") || decades.includes(element.decade))) &&
-                (!neighborhoods.length || (neighborhoods[0] === ("הכל") || neighborhoods.includes(element.neighborhood))) &&
-                (!womanStreetsOnly || element.isNamedAfterWoman) &&
+                (!decades.length || (decades[0] === ("הכל") || decades.includes(element.Decade))) &&
+                (!neighborhoods.length || (neighborhoods[0] === ("הכל") || neighborhoods.includes(element.Neighborhood))) &&
+                (!womanStreetsOnly || element.IsNamedAfterWoman) &&
                 (!plannedStreetsOnly || !element.Exist)
 
             ) {
-                names.push(element.name);
-                var name = element.name.replace('פרופ ', '');
-                if (element.coordinates.length === 1) {
-                    points.push({ coordinates: element.coordinates, name: name, link: 'https://he.wikipedia.org/wiki/' + name, color: "#FF0000" });
+                names.push(element.Name);
+                var name = element.Name.replace('פרופ ', '');
+                if (element.Coordinates.length === 1) {
+                    points.push({ coordinates: element.Coordinates, name: name, link: 'https://he.wikipedia.org/wiki/' + name, color: "#FF0000" });
                 }
                 else {
-                    lines.push({ coordinates: element.coordinates, name: name, link: 'https://he.wikipedia.org/wiki/' + name, color: "#FF0000" });
+                    lines.push({ coordinates: element.Coordinates, name: name, link: 'https://he.wikipedia.org/wiki/' + name, color: "#FF0000" });
 
                 }
 
@@ -116,29 +122,44 @@ export class MapPage extends Component {
 
 
     render() {
-        return <div className="main-page">
-            <SearchBar className="search-bar"
-                onDecadeChanged={this.handleDecadeChanged.bind(this)}
-                onNeighborhoodChanged={this.handleNeighborhoodChanged.bind(this)}
-                onWomanStreetsOnlyChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
-                onPlannedSreetsChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
-            ></SearchBar>
-            <div className='main'>
-                {this.state.DisplayedStreetsNames.length > 0 &&
-                    <StreertsList className="streets-list"
-                        streetsList={this.state.DisplayedStreetsNames}
-                        handleStreetClicked={this.handleStreetClicked}
-                    ></StreertsList>}
-                <GoogleApiWrapper
-                    className="google-api-wrapper"
-                    points={this.state.DisplayedStreetsPoints}
-                    lines={this.state.DisplayedStreetsLines}
-                    ColorfullStreet={this.state.ColorfullStreetName}
-                >
+        return <div>
+            {this.state.loading ?
+                <div style={{ paddingTop: 50 }}>
+                    <Loader
+                        type="Rings"
+                        color="#00BFFF"
+                        height={500}
+                        width={1000}
+                    />
+                </div>
 
-                </GoogleApiWrapper>
-            </div>
-        </div >
+                :
+                <div className="main-page">
+                    <SearchBar className="search-bar"
+                        onDecadeChanged={this.handleDecadeChanged.bind(this)}
+                        onNeighborhoodChanged={this.handleNeighborhoodChanged.bind(this)}
+                        onWomanStreetsOnlyChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
+                        onPlannedSreetsChecked={this.handleWomanStreetsOnlyChecked.bind(this)}
+                    ></SearchBar>
+                    <div className='main'>
+                        {this.state.DisplayedStreetsNames.length > 0 &&
+                            <StreertsList className="streets-list"
+                                streetsList={this.state.DisplayedStreetsNames}
+                                handleStreetClicked={this.handleStreetClicked}
+                            ></StreertsList>}
+                        <GoogleApiWrapper
+                            className="google-api-wrapper"
+                            points={this.state.DisplayedStreetsPoints}
+                            lines={this.state.DisplayedStreetsLines}
+                            ColorfullStreet={this.state.ColorfullStreetName}
+                        >
+
+                        </GoogleApiWrapper>
+                    </div>
+                </div >
+            }
+        </div>
+
     }
 }
 export default MapPage;

@@ -8,12 +8,10 @@ import './SearchBar.css';
 
 export class SearchBar extends Component {
     GetAvailableSelections() {
-        return fetch('https://localhost:44343/api/App/GetAvailableSelections')
+        return fetch('https://api.myjson.com/bins/r59e4')
+            //fetch('https://localhost:44343/api/App/GetAvailableSelections')
             .then(response => response.json())
-            .catch((error) => {
-                // handle your errors here
-                console.error(error)
-            })
+            .catch((error) => { console.error(error) })
     };
 
     componentDidMount = () => {

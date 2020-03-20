@@ -66,31 +66,37 @@ export class MapContainer extends Component {
   }
 
   HandleColroChange = (streetName, isBackToBlack) => {
-    var index = this.polylineRefArr.findIndex(ref => ref.props.name === streetName);
-    if (index > -1) { //handle polyline
-      var ref = this.polylineRefArr[index];
-      var color;
-      if (isBackToBlack) {
-        color = "#000000";
-      }
-      else { //color
-        color = "#FF0000";
-      }
-      this.ChangePolylineStreertColor(ref, color);
-    }
-    else {
-      index = this.markerRefArr.findIndex(ref => ref.props.name === streetName);
-      if (index > -1) { //handle marker
-        var ref = this.markerRefArr[index];
-        var icon;
+    try {
+      var index = this.polylineRefArr.findIndex(ref => ref.props.name === streetName);
+      if (index > -1) { //handle polyline
+        var ref = this.polylineRefArr[index];
+        var color;
         if (isBackToBlack) {
-          icon = iconPin;
+          color = "#000000";
         }
         else { //color
-          icon = iconColorfull;
+          color = "#FF0000";
         }
-        this.ChangeMarkerStreertColor(ref, icon);
+        this.ChangePolylineStreertColor(ref, color);
       }
+      else {
+        index = this.markerRefArr.findIndex(ref => ref.props.name === streetName);
+        if (index > -1) { //handle marker
+          var ref = this.markerRefArr[index];
+          var icon;
+          if (isBackToBlack) {
+            icon = iconPin;
+          }
+          else { //color
+            icon = iconColorfull;
+          }
+          this.ChangeMarkerStreertColor(ref, icon);
+        }
+      }
+    }
+    catch (e) {
+      debugger;
+
     }
 
   }
