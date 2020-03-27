@@ -17,6 +17,7 @@ export class Menu extends Component {
             <li><NavLink exact to="/" activeClassName="active">עמוד ראשי</NavLink ></li>
             <li><NavLink exact to="/map" activeClassName="active">הצגת המפה</NavLink ></li>
             <li><NavLink exact to="/about" activeClassName="active">אודות הפרוייקט</NavLink ></li>
+            <li><NavLink exact to="/conclusions" activeClassName="active">מסקנות ונתונים</NavLink ></li>
         </ul>
     }
 }

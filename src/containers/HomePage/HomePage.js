@@ -7,7 +7,7 @@ export class HomePage extends Component {
 
 
     render() {
-        return <div className="mainPage" >
+        return <div className="text-page" >
             <p>ברוכים הבאים</p>
             <p>באתר זה מוצגת התפתחות העיר באר שבע לפי שכונות העיר.</p>
             <p>על ידי לחיצה על <NavLink exact to="/map" activeClassName="active">הצגת המפה</NavLink >, ניתן לראות את מפת העיר.</p>

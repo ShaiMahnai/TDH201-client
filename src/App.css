@@ -9,9 +9,18 @@ html,body,#root{
   height: 100%;
 }
 
-.mainPage, .about{
+.text-page{
   padding: 1%;
   background-color: #DDDDDD;
   min-height: 100vh;
 
+}
+table, tr, td {
+  padding: 0 5px 0 10px;
+  border-collapse: collapse;
+  border: 0.5px solid black;
+}
+
+thead{
+  font-weight: bold;
 }

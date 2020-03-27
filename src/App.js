@@ -10,7 +10,7 @@ import MapPage from './containers/MapPage/MapPage.js';
 import About from './containers/About/About.js'
 import Menu from './containers/Menu/Menu.js'
 import HomePage from './containers/HomePage/HomePage.js'
-
+import Conclusions from './containers/Conclusions/Conclusions.js'
 
 
 
@@ -32,6 +32,7 @@ export class App extends Component {
             <Route exact path="/" render={(props) => <HomePage {...props} />} />
             <Route exact path="/map" render={(props) => <MapPage {...props} />} />
             <Route path="/about" render={(props) => <About {...props} />} />
+            <Route path="/conclusions" render={(props) => <Conclusions {...props} />} />
           </Switch>
         </BrowserRouter>
       </div>

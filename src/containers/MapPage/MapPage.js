@@ -36,7 +36,6 @@ export class MapPage extends Component {
         return fetch('https://api.myjson.com/bins/f60p8')
             //fetch('https://localhost:44343/api/App')
             .then((response) => response.json())
-
     };
     handleDecadeChanged(decade) {
         this.UpdateStreetDisplay([decade], this.state.SelectedNeighborhoods, this.state.WomanStreetsOnly, this.state.PlannedStreetsOnly);

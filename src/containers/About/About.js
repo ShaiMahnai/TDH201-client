@@ -7,7 +7,7 @@ export class About extends Component {
 
 
     render() {
-        return <div className="about" >
+        return <div className="text-page" >
             <p>הפרוייקט נבנה כחלק מקורס "מדעי הרוח הדיגיטליים" במסגרת התואר הראשון במדעי המחשב באוניברסיטת בן גוריון, באר שבע: <a href="https://www.cs.bgu.ac.il/~tdh201/Main">https://www.cs.bgu.ac.il/~tdh201/Main</a>, בהנחיית ד"ר יעל נצר.</p>
             <p>כתושבי באר שבע, שמחנו לגלות על מאגר המידע המתקדם של העירייה, וראינו את עצם ביצוע הפרוייקט בנושא זה כמעניין וחשוב כאחד.</p>
 

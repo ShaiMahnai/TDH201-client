@@ -12,7 +12,7 @@ var iconColorfull = {
   path: 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z',
   fillColor: "#FF0000",
   fillOpacity: 1,
-  scale: 0.01, //to reduce the size of icons
+  scale: 0.03, //to reduce the size of icons
 };
 
 
@@ -20,7 +20,7 @@ var iconPin = {
   path: 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z',
   fillColor: "#000000",
   fillOpacity: 1,
-  scale: 0.01, //to reduce the size of icons
+  scale: 0.02, //to reduce the size of icons
 };
 
 export class MapContainer extends Component {
@@ -57,8 +57,8 @@ export class MapContainer extends Component {
       openInfoWindowStreetName: ''
     });
   }
-  ChangePolylineStreertColor = (ref, color) => {
-    ref.polyline.setOptions({ strokeColor: color });
+  ChangePolylineStreertColor = (ref, color, weight) => {
+    ref.polyline.setOptions({ strokeColor: color, strokeWeight: weight });
   }
 
   ChangeMarkerStreertColor = (ref, icon) => {
@@ -71,13 +71,16 @@ export class MapContainer extends Component {
       if (index > -1) { //handle polyline
         var ref = this.polylineRefArr[index];
         var color;
+        var weight;
         if (isBackToBlack) {
           color = "#000000";
+          weight = 3;
         }
         else { //color
           color = "#FF0000";
+          weight = 4;
         }
-        this.ChangePolylineStreertColor(ref, color);
+        this.ChangePolylineStreertColor(ref, color, weight);
       }
       else {
         index = this.markerRefArr.findIndex(ref => ref.props.name === streetName);
@@ -154,7 +157,7 @@ export class MapContainer extends Component {
             index={index}
             strokeColor={"#000000"}
             strokeOpacity={1.0}
-            strokeWeight={2}
+            strokeWeight={3}
             geodesic={true}
             onClick={() => this.handleStreetClicked(link)}
             onMouseover={(e) => { this.handleMouseover(name) }}
